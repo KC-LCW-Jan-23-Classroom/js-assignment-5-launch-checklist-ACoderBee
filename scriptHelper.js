@@ -1,7 +1,7 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
+function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {//write variables forDOM OBJ for HTML elements
    // Here is the HTML formatting for our mission target div.
    /*
                 <h2>Mission Destination</h2>
@@ -16,11 +16,21 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-function validateInput(testInput) {
-   
-}
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+
+
+
+function validateInput(testInput) {//validate input & prevent empty submissions
+    // let formField = document.getElementsByClassName("formField");
+    
+    }
+   
+
+
+
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {//write variables forDOM OBJ for HTML elements
+    //write form level listener for submission
+    
    
 }
 
