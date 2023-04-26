@@ -2,9 +2,10 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {//write variables forDOM OBJ for HTML elements
-   // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
+    missionTarget.innerHTML +=
+    `
+       
+         h2>Mission Destination</h2>
                 <ol>
                     <li>Name: </li>
                     <li>Diameter: </li>
@@ -13,7 +14,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                     <li>Number of Moons: </li>
                 </ol>
                 <img src="">
-   */
+                `
+  
+                
+  
 }
 
 
@@ -37,11 +41,17 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+        let jsonPromise = response.json(); //.then response
+        jsonPromise.then(function (jsonData) {
+            console.log(jsonData);
         });
+    });
+        
+        return planetsReturned;
+} 
+myFetch();//call function
 
-    return planetsReturned;
-}
 
 function pickPlanet(planets) {
 }

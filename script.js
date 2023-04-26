@@ -1,10 +1,14 @@
 // Write your JavaScript code here!
 
 window.addEventListener("load", function() {
+    
+    const missionTarget = document.getElementById('missionTarget');
+   
 /* 
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-   let listedPlanetsResponse;
+//is this the 2nd part of the fetch?
+   let listedPlanetsResponse = myFetch();
    listedPlanetsResponse.then(function (result) {
        listedPlanets = result;
        console.log(listedPlanets);
