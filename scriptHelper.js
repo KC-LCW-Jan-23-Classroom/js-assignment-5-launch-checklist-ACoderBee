@@ -50,7 +50,7 @@ async function myFetch() {
         
         return planetsReturned;
 } 
-myFetch();//call function
+
 
 
 function pickPlanet(planets) {
