@@ -4,17 +4,16 @@ require('isomorphic-fetch');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {//write variables forDOM OBJ for HTML elements
     missionTarget.innerHTML +=
     `
-       
-         h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-                `
+        h2>Mission Destination</h2>
+        <ol>
+            <li>Name: </li>
+            <li>Diameter: </li>
+            <li>Star: ${star}</li>
+            <li>Distance from Earth: </li>
+            <li>Number of Moons: </li>
+        </ol>
+        <img src="">
+        `
   
                 
   
@@ -39,21 +38,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 async function myFetch() {
-    let planetsReturned;
-
+    let planetsReturned; //What's the purpose of the variable?
     planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
         let jsonPromise = response.json(); //.then response
         jsonPromise.then(function (jsonData) {
-            console.log(jsonData);
+            console.log(jsonData); //jsonData - array of 6 objects 
+                     
         });
-    });
-        
-        return planetsReturned;
+  
+    });    
+        console.dir(planetsReturned);  //undefined 
+        console.log(typeof planetsReturned);  //undefined
+        return planetsReturned; //a promise is produced by myFetch
 } 
 
 
 
 function pickPlanet(planets) {
+    console.log(`pickplanet function`);
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
