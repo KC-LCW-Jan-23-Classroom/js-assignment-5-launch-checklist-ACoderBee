@@ -1,13 +1,19 @@
-//import pickPlanet from './scriptHelper';  NO import ??? why
+
 // Write your JavaScript code here!
+
+//const { addDestinationInfo } = require("./scriptHelper");
+
+//const { pickPlanet } = require("./scriptHelper");
+
+//const { pickPlanet } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
     
     const pilot = document.getElementById("pilotName");
     const copilot = document.getElementsByName("copilotName");
     const fuelLevel = document.getElementsByName("fuelLevel");
-    const cargoLevel = document.getElementsByName("cargoMass");
-    const missionTarget = document.getElementById('missionTarget');
+    const cargoLevel = document.getElementsByName("cargoMass"); 
+    //const missionTarget = document.getElementById('missionTarget');
     
    
 
@@ -19,7 +25,10 @@ window.addEventListener("load", function() {
             listedPlanets = jsonData;  
             console.log(listedPlanets);              
         }).then(function () {
-            pickPlanet();//gets to function pickPlanet//argument listedPlanets
+            let index=pickPlanet(listedPlanets);//gets to function pickPlanet//argument listedPlanets
+            console.log(index);
+           let planetDest = (listedPlanets[index]);
+           addDestinationInfo(document,planetDest.name, planetDest.diameter, planetDest.star, planetDest.distance, planetDest.moons, planetDest.image);
      }); 
 //    
        
@@ -32,7 +41,7 @@ window.addEventListener("load", function() {
 
 
 //const formField = document.getElementsByClassName("formField");
-    let form = document.querySelector("form");//tagname vs id? chgd to selector
+    let form = document.querySelector("form");
     // console.log(form);
     form.addEventListener("submit", function(event) {
         // Get Working, then move to -- validate input
@@ -43,6 +52,8 @@ window.addEventListener("load", function() {
        
          // preventDefault leave -- but it isn't working in this location
          event.preventDefault();  // stop the form submission  
+         validateInput(testInput);
+         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
           
             
             
@@ -50,3 +61,7 @@ window.addEventListener("load", function() {
     }); //end submit listener
 
 }); //end of load listner
+
+//import pickPlanet from './scriptHelper'; not  needed due the 2 script tags
+//<script src = "scriptHelper.js"></script> Joins in a big script file
+//<script src = "script.js"></script>

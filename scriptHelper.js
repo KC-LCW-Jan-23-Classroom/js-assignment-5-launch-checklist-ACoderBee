@@ -2,17 +2,19 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {//write variables forDOM OBJ for HTML elements
+    const missionTarget = document.getElementById('missionTarget');
+    console.log("in addDestinationInfo");
     missionTarget.innerHTML +=
     `
         h2>Mission Destination</h2>
         <ol>
-            <li>Name: </li>
-            <li>Diameter: </li>
+            <li>Name:${name} </li>
+            <li>Diameter:${diameter} </li>
             <li>Star: ${star}</li>
-            <li>Distance from Earth: </li>
-            <li>Number of Moons: </li>
+            <li>Distance from Earth:${distance} </li>
+            <li>Number of Moons:${moons} </li>
         </ol>
-        <img src="">
+        <img src="${imageUrl}">
         `        
   
 }
@@ -27,7 +29,7 @@ function validateInput(testInput) {//validate input & prevent empty submissions
     let copilotInput=document.querySelector("input[name=copilotName]");
     let fuelLevelInput=document.querySelector("input[name=fuelLevel]");
     let cargoMassInput=document.querySelector("input[name=cargoMass]");
-    
+    console.log("in validate function");
     if (pilotInput.value.length === 0 || copilotInput.value.length === 0 || fuelLevelInput.value.length === 0 || cargoMassInput.value.length=== 0) {
         alert(` ALL fields required`);        
      } 
@@ -48,8 +50,17 @@ function validateInput(testInput) {//validate input & prevent empty submissions
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     //write variables forDOM OBJ for HTML elements
-    //write form level listener for submission
+    /* 
+    const pilot = document.getElementById("pilotName");
+    const copilot = document.getElementsByName("copilotName");
+    const fuelLevel = document.getElementsByName("fuelLevel");
+    const cargoLevel = document.getElementsByName("cargoMass"); 
+    */
     
+    console.log("in form submission");
+    //write form level listener for submission
+
+  
    
 }
 
