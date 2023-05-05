@@ -24,45 +24,61 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
 
 function validateInput(testInput) {//validate input & prevent empty submissions
-    // let formField = document.getElementsByClassName("formField");
-    let pilotInput=document.querySelector("input[name=pilotName]");
-    let copilotInput=document.querySelector("input[name=copilotName]");
-    let fuelLevelInput=document.querySelector("input[name=fuelLevel]");
-    let cargoMassInput=document.querySelector("input[name=cargoMass]");
-    console.log("in validate function");
-    if (pilotInput.value.length === 0 || copilotInput.value.length === 0 || fuelLevelInput.value.length === 0 || cargoMassInput.value.length=== 0) {
-        alert(` ALL fields required`);        
-     } 
+    // Take in a string variable, testInput
+  
+    if (testInput === "" || null) { //instead of value.length=0;
+        return "Empty";         
+    } 
         
-    else if (pilotInput.value !== isNaN || copilotInput.value !== isNaN ) {
-        alert(` This cannot accept a number`);        
+     if (Number(testInput) === NaN  ) {
+        return "Is a Number";        
     }
-    else if (fuelLevelInput.value === isNaN ||  cargoMassInput.value === isNaN) {
-        alert(`This requires a Number"`);        
+    if (Number(testInput)!== NaN ) {
+        return "Not a Number";    //formsubmission    
     }
-    else
-        alert ("ready to submit");
-    
-    }
+        
+}
    
 
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     //write variables forDOM OBJ for HTML elements
-    /* 
-    const pilot = document.getElementById("pilotName");
-    const copilot = document.getElementsByName("copilotName");
-    const fuelLevel = document.getElementsByName("fuelLevel");
-    const cargoLevel = document.getElementsByName("cargoMass"); 
-    */
-    
     console.log("in form submission");
-    //write form level listener for submission
+    
+ //validate data test
+    if (validateInput(pilot ) === "Empty"|| validateInput(copilot ) === "Empty" || validateInput(fuelLevel ) === "Empty" || validateInput(cargoLevel) === "Empty") {
+        console.log(pilot,copilot,fuelLevel,cargoLevel);
+        alert( "User input Required for all fields");  
+              
+     } 
+        
+    else if (validateInput(pilot ) === "Is a Number" || validateInput(copilot ) === "Is a Number"  ) {
+        alert("A Number is invalid"); 
+               
+    }
+    else if (validateInput(fuelLevel ) === "Not a Number" ||  validateInput(cargoLevel) === "Not a Number") {
+        alert("Text is invalid");    //formsubmission   
+       
+    }
+    else console.log("readytosubmit");
 
-  
+    
    
-}
+    //write form level listener for submission
+/*
+    if (pilot.value === "Empty"|| copilot.value === "Empty" || fuelLevel.value === "Empty" || cargoLevel.value === "Empty") {
+        alert( "User input Required for all fields");        
+     } 
+        
+    else if (pilot.value !== isNaN || copilot.value !== isNaN ) {
+        alert("Is a Number");        
+    }
+    else if (fuelLevel.value === isNaN ||  cargoLevel.value === isNaN) {
+        alert("Not a Number");    //formsubmission    
+    }
+   */
+} // end form submission
 
 //let planetsReturned ; //What's the purpose of the variable?
 async function myFetch() {

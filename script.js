@@ -8,15 +8,9 @@
 //const { pickPlanet } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
+    //const formField = document.getElementsByClassName("formField");
+    let form = document.querySelector("form");
     
-    const pilot = document.getElementById("pilotName");
-    const copilot = document.getElementsByName("copilotName");
-    const fuelLevel = document.getElementsByName("fuelLevel");
-    const cargoLevel = document.getElementsByName("cargoMass"); 
-    //const missionTarget = document.getElementById('missionTarget');
-    
-   
-
    let listedPlanets;//array of 6 objects
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
 //is this the 2nd part of the fetch?
@@ -35,24 +29,28 @@ window.addEventListener("load", function() {
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination. */
        
        
-// 
-   //init loading of 
-  
 
-
-//const formField = document.getElementsByClassName("formField");
-    let form = document.querySelector("form");
-    // console.log(form);
+    console.log(form);
     form.addEventListener("submit", function(event) {
-        // Get Working, then move to -- validate input
+    
+        event.preventDefault();  // stops the form submission event 
+    //const missionTarget = document.getElementById('missionTarget');
+        let pilotInput=document.querySelector("input[name=pilotName]");
+        let copilotInput=document.querySelector("input[name=copilotName]");
+        let fuelLevelInput=document.querySelector("input[name=fuelLevel]");
+        let cargoLevelInput=document.querySelector("input[name=cargoMass]");
+       //parameters for formsubmission
+        const pilot = pilotInput.nodeValue;
+        const copilot = copilotInput.nodeValue;
+        const fuelLevel = fuelLevelInput.nodeValue;
+        const cargoLevel = cargoLevelInput.nodeValue; 
+        //document = form;
+        let list = document.getElementById("faultyItems");
         
         
-        //faulty logic always get 1st pilot alert
-        //to get input - 
        
          // preventDefault leave -- but it isn't working in this location
-         event.preventDefault();  // stop the form submission  
-         validateInput(testInput);
+        
          formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
           
             
