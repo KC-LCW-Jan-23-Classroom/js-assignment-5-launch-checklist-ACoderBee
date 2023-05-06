@@ -40,13 +40,13 @@ window.addEventListener("load", function() {
         let fuelLevelInput=document.querySelector("input[name=fuelLevel]");
         let cargoLevelInput=document.querySelector("input[name=cargoMass]");
        //parameters for formsubmission
-        const pilot = pilotInput.nodeValue;
-        const copilot = copilotInput.nodeValue;
-        const fuelLevel = fuelLevelInput.nodeValue;
-        const cargoLevel = cargoLevelInput.nodeValue; 
+        const pilot = pilotInput.value;
+        const copilot = copilotInput.value;
+        const fuelLevel = fuelLevelInput.value;
+        const cargoLevel = cargoLevelInput.value; 
         //document = form;
         let list = document.getElementById("faultyItems");
-        
+        console.log(pilot, copilot, fuelLevel, cargoLevel);
         
        
          // preventDefault leave -- but it isn't working in this location

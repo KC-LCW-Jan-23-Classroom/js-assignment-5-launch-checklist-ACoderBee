@@ -26,15 +26,17 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 function validateInput(testInput) {//validate input & prevent empty submissions
     // Take in a string variable, testInput
   
-    if (testInput === "" || null) { //instead of value.length=0;
+    if (testInput === "" ) { //instead of value.length=0;
         return "Empty";         
     } 
         
      if (Number(testInput) === NaN  ) {
-        return "Is a Number";        
+        console.log(testInput +"Not a Number" );
+        return "Not a Number";        
     }
     if (Number(testInput)!== NaN ) {
-        return "Not a Number";    //formsubmission    
+        console.log(testInput +"Is a Number");
+        return "Is a Number";    //formsubmission    
     }
         
 }
