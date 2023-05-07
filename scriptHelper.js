@@ -18,28 +18,19 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         `        
   
 }
-
-
-
-
-
 function validateInput(testInput) {//validate input & prevent empty submissions
     // Take in a string variable, testInput
   
     if (testInput === "" ) { //instead of value.length=0;
         return "Empty";         
-    } 
-        
-     if (Number(testInput) === NaN  ) {
-        console.log(testInput +"Not a Number" );
+    }   
+    if (isNaN(testInput)  ) {
+     //isNaN does text to number conversion
         return "Not a Number";        
-    }
-    if (Number(testInput)!== NaN ) {
-        console.log(testInput +"Is a Number");
-        return "Is a Number";    //formsubmission    
-    }
-        
-}
+    } else
+        return "Is a Number"; 
+                       
+} //end validate input
    
 
 
@@ -51,23 +42,21 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
  //validate data test
     if (validateInput(pilot ) === "Empty"|| validateInput(copilot ) === "Empty" || validateInput(fuelLevel ) === "Empty" || validateInput(cargoLevel) === "Empty") {
         console.log(pilot,copilot,fuelLevel,cargoLevel);
-        alert( "User input Required for all fields");  
-              
+        alert( "User input Required for all fields");                
      } 
         
     else if (validateInput(pilot ) === "Is a Number" || validateInput(copilot ) === "Is a Number"  ) {
-        alert("A Number is invalid"); 
-               
+        alert("A Number is invalid");               
     }
     else if (validateInput(fuelLevel ) === "Not a Number" ||  validateInput(cargoLevel) === "Not a Number") {
-        alert("Text is invalid");    //formsubmission   
-       
+        alert("Text is invalid");          
     }
     else console.log("readytosubmit");
 
     
    
     //write form level listener for submission
+} // end form submission
 /*
     if (pilot.value === "Empty"|| copilot.value === "Empty" || fuelLevel.value === "Empty" || cargoLevel.value === "Empty") {
         alert( "User input Required for all fields");        
@@ -80,7 +69,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Not a Number");    //formsubmission    
     }
    */
-} // end form submission
 
 //let planetsReturned ; //What's the purpose of the variable?
 async function myFetch() {
