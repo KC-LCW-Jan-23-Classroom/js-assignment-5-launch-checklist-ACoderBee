@@ -1,12 +1,6 @@
 
 // Write your JavaScript code here!
 
-//const { addDestinationInfo } = require("./scriptHelper");
-
-//const { pickPlanet } = require("./scriptHelper");
-
-//const { pickPlanet } = require("./scriptHelper");
-
 window.addEventListener("load", function() {
     //const formField = document.getElementsByClassName("formField");
     let form = document.querySelector("form");
@@ -25,16 +19,12 @@ window.addEventListener("load", function() {
            addDestinationInfo(document,planetDest.name, planetDest.diameter, planetDest.star, planetDest.distance, planetDest.moons, planetDest.image);
      }); 
 //    
-       
-       // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination. */
-       
-       
 
     console.log(form);
     form.addEventListener("submit", function(event) {
     
         event.preventDefault();  // stops the form submission event 
-    //const missionTarget = document.getElementById('missionTarget');
+    
         let pilotInput=document.querySelector("input[name=pilotName]");
         let copilotInput=document.querySelector("input[name=copilotName]");
         let fuelLevelInput=document.querySelector("input[name=fuelLevel]");
@@ -47,15 +37,9 @@ window.addEventListener("load", function() {
         //document = form;
         let list = document.getElementById("faultyItems");
         console.log(pilot, copilot, fuelLevel, cargoLevel);
-        
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
        
-         // preventDefault leave -- but it isn't working in this location
-        
-         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
-          
-            
-            
-
+         // preventDefault  isn't working in this location
     }); //end submit listener
 
 }); //end of load listner

@@ -51,6 +51,25 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     else if (validateInput(fuelLevel ) === "Not a Number" ||  validateInput(cargoLevel) === "Not a Number") {
         alert("Text is invalid");          
     }
+    else {console.log("correct types pilots assigned");
+    }
+    if(Number(fuelLevel)<= 10000){
+        console.log("fuel too low");
+        /*change faultyItems to visible
+         with an updated fuel status stating that there is not enough fuel for the journey. 
+         The text of the h2 element, launchStatus, should also change to "Shuttle not ready for launch" and 
+         the color should change to red.
+         */
+    }//faulty fuel
+    else if(Number(cargoLevel)>= 10000){
+        console.log("cargo too heavy");
+        /* 
+        change the list to visible 
+        with an updated cargo status stating that there is too much mass for the shuttle to take off. 
+        The text of launchStatus should also change to "Shuttle not ready for launch" and 
+        the color should change to red*/
+
+    }// faulty cargo
     else console.log("readytosubmit");
 
     
