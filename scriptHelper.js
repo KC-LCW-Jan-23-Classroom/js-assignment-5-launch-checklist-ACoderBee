@@ -48,8 +48,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     else if (validateInput(fuelLevel ) === "Not a Number" ||  validateInput(cargoLevel) === "Not a Number") {
         alert("Text is invalid");          
     }
-    else {console.log("correct types pilots assigned");
+    else {console.log("correct types were Input Now provide Launchstatus");
+    let Launchstatus=getElementById(Launchstatus);
+    list.style.visibility
     //Using template literals, update the li elements pilotStatus and copilotStatus to include the pilot's name and the co-pilot's name
+    
     }
     if(Number(fuelLevel)<= 10000){
         console.log("fuel too low");
