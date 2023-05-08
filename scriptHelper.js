@@ -4,7 +4,7 @@ require('isomorphic-fetch');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {//write variables forDOM OBJ for HTML elements
     const missionTarget = document.getElementById('missionTarget');
     console.log("in addDestinationInfo");
-    missionTarget.innerHTML +=
+    missionTarget.innerHTML =
     `
         h2>Mission Destination</h2>
         <ol>
@@ -31,10 +31,7 @@ function validateInput(testInput) {//validate input & prevent empty submissions
         return "Is a Number"; 
                        
 } //end validate input
-   
-
-
-
+ 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     //write variables forDOM OBJ for HTML elements
     console.log("in form submission");
@@ -52,6 +49,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Text is invalid");          
     }
     else {console.log("correct types pilots assigned");
+    //Using template literals, update the li elements pilotStatus and copilotStatus to include the pilot's name and the co-pilot's name
     }
     if(Number(fuelLevel)<= 10000){
         console.log("fuel too low");
@@ -72,52 +70,45 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }// faulty cargo
     else console.log("readytosubmit");
 
-    
-   
-    //write form level listener for submission
-} // end form submission
-/*
-    if (pilot.value === "Empty"|| copilot.value === "Empty" || fuelLevel.value === "Empty" || cargoLevel.value === "Empty") {
-        alert( "User input Required for all fields");        
-     } 
-        
-    else if (pilot.value !== isNaN || copilot.value !== isNaN ) {
-        alert("Is a Number");        
-    }
-    else if (fuelLevel.value === isNaN ||  cargoLevel.value === isNaN) {
-        alert("Not a Number");    //formsubmission    
-    }
-   */
-
-//let planetsReturned ; //What's the purpose of the variable?
-async function myFetch() {
-    let planetsReturned ; //What's the purpose of the variable?
-    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-        let jsonPromise = response.json(); //.json extracts data for use
-         return jsonPromise;
-    });    
+    //let planetsReturned ; //What's the purpose of the variable?
+    async function myFetch() {
+        let planetsReturned ; //What's the purpose of the variable?
+        planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+            let jsonPromise = response.json(); //.json extracts data for use
+            return jsonPromise;
+        });    
         console.dir(planetsReturned);  
         return planetsReturned; //results of promise is produced by myFetch
-} 
-
-
-
-function pickPlanet(planets) { //pickPlanet(planetsReturned) undefined
-    let planetIdx;
-    let arrayLength;
-    if (arrayLength === undefined) {
-        planetIdx = Math.floor(Math.random()*6);
+    } 
+  
+    function pickPlanet(planets) { //pickPlanet(planetsReturned) undefined
+        let planetIdx;
+        let arrayLength;
+        if (arrayLength === undefined) {
+            planetIdx = Math.floor(Math.random()*6);
+            console.log(planetIdx);
+            return planetIdx;
+        }
+        arrayLength = planets.length;
+        planetIdx = Math.floor(Math.random()*arrayLength); //hardcoded planet.length undefined 
         console.log(planetIdx);
         return planetIdx;
     }
-    arrayLength = planets.length;
-    planetIdx = Math.floor(Math.random()*arrayLength); //hardcoded planet.length undefined 
-    console.log(planetIdx);
-    return planetIdx;
-}
-
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;
+    module.exports.addDestinationInfo = addDestinationInfo;
+    module.exports.validateInput = validateInput;
+    module.exports.formSubmission = formSubmission;
+    module.exports.pickPlanet = pickPlanet; 
+    module.exports.myFetch = myFetch;
+} // end form submission
+/*
+//write form level listener for submission
+     if (pilot.value === "Empty"|| copilot.value === "Empty" || fuelLevel.value === "Empty" || cargoLevel.value === "Empty") {
+         alert( "User input Required for all fields");        
+    }         
+     else if (pilot.value !== isNaN || copilot.value !== isNaN ) {
+         alert("Is a Number");        
+    }
+     else if (fuelLevel.value === isNaN ||  cargoLevel.value === isNaN) {
+         alert("Not a Number");    //formsubmission    
+    }
+    */
