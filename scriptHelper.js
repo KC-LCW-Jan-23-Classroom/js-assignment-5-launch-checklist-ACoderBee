@@ -57,7 +57,7 @@ function validateInput(testInput) {//validate input & prevent empty submissions
  
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
       
- //validate data test
+ 
     if (validateInput(pilot ) === "Empty"|| validateInput(copilot ) === "Empty" || validateInput(fuelLevel ) === "Empty" || validateInput(cargoLevel) === "Empty") {
         console.log(pilot,copilot,fuelLevel,cargoLevel);
         alert( "User input Required for all fields");                
@@ -69,49 +69,46 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     else if (validateInput(fuelLevel ) === "Not a Number" ||  validateInput(cargoLevel) === "Not a Number") {
         alert("Text is invalid");          
     }//endif validate text
-    else {
-    //launchStatus=document.getElementById(launchStatus);
+    else    {
+    let launchStatus=document.getElementById("launchStatus");
+    let pilotStatus=document.getElementById("pilotStatus");
+    let copilotStatus=document.getElementById("copilotStatus");
+    let fuelStatus=document.getElementById("fuelStatus");
+    let cargoStatus=document.getElementById("cargoStatus");
+    
     list.style.visibility ="visible";// dont understand inline style list
     pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML=`Co-pilot ${copilot} is ready for launch`;
-    }//end if correct typeOf data 
-
     if(Number(fuelLevel)< 10000 && Number(cargoLevel)<= 10000 ){
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is too low for launch`;
-        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} is low enough for launch`;
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} too low for launch`;
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} low enough for launch`;
         launchStatus.innerHTML=`Shuttle not ready for launch`;
-        launchStatus.style.color='red';
-
+        launchStatus.style.color='red';        
     }   
     else if(Number(fuelLevel)>= 10000 && Number(cargoLevel)<= 10000 ){
-
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is high enough for launch`;
-        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} is low enough for launch`;
+        
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} high enough for launch`;
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} low enough for launch`;
         launchStatus.innerHTML=`Shuttle is ready for launch`;
         launchStatus.style.color ="green";
-
+        
     }
-   
-    //faulty fuel
- 
+       
     //>>
     else if (Number(fuelLevel)< 10000 && Number(cargoLevel)> 10000) {        
-        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} is too heavy for launch`;
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is too low for launch`;
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} too heavy for launch`;
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} too low for launch`;
         launchStatus.innerHTML=`Shuttle not ready for launch`;
         launchStatus.style.color='red';
     }
-        /* 
-        change the list to visible 
-        with an updated cargo status stating that there is too much mass for the shuttle to take off. 
-        The text of launchStatus should also change to "Shuttle not ready for launch" and 
-        the color should change to red*/
+    
     else if (Number(fuelLevel)>= 10000 && Number(cargoLevel)> 10000) {
-        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} is too heavy for launch`; 
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is high enough for launch`;
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} too heavy for launch`; 
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} high enough for launch`;
         launchStatus.innerHTML=`Shuttle not ready for launch`; 
         launchStatus.style.color='red'; 
     }//
+    }//end if -- all fields have correct typeOf data 
 }//end formSubmit
    
 
