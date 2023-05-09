@@ -18,6 +18,31 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         `        
   
 }
+//let planetsReturned ; //What's the purpose of the variable?
+async function myFetch() {
+    let planetsReturned ; //What's the purpose of the variable?
+    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+        let jsonPromise = response.json(); //.json extracts data for use
+        return jsonPromise;
+    });    
+    console.dir(planetsReturned);  
+    return planetsReturned; //results of promise is produced by myFetch
+} // end fetch
+
+function pickPlanet(planets) { //pickPlanet(planetsReturned) undefined
+    let planetIdx;
+    let arrayLength;
+    if (arrayLength === undefined) {
+        planetIdx = Math.floor(Math.random()*6);
+        console.log(planetIdx);
+        return planetIdx;
+    }
+    arrayLength = planets.length;
+    planetIdx = Math.floor(Math.random()*arrayLength); //hardcoded planet.length undefined 
+    console.log(planetIdx);
+    return planetIdx;
+}
+
 function validateInput(testInput) {//validate input & prevent empty submissions
     // Take in a string variable, testInput
   
@@ -33,9 +58,7 @@ function validateInput(testInput) {//validate input & prevent empty submissions
 } //end validate input
  
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    //write variables forDOM OBJ for HTML elements
-    console.log("in form submission");
-    
+      
  //validate data test
     if (validateInput(pilot ) === "Empty"|| validateInput(copilot ) === "Empty" || validateInput(fuelLevel ) === "Empty" || validateInput(cargoLevel) === "Empty") {
         console.log(pilot,copilot,fuelLevel,cargoLevel);
@@ -48,70 +71,59 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     else if (validateInput(fuelLevel ) === "Not a Number" ||  validateInput(cargoLevel) === "Not a Number") {
         alert("Text is invalid");          
     }
-    else {console.log("correct types were Input Now provide Launchstatus");
-    let Launchstatus=getElementById(Launchstatus);
-    list.style.visibility
-    //Using template literals, update the li elements pilotStatus and copilotStatus to include the pilot's name and the co-pilot's name
-    
+    else 
+    launchStatus=document.getElementById(launchStatus);
+    list.style.visibility ="visible";
+    //let list = document.getElementById("faultyItems");
+    pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML=`Co-pilot ${copilot} is ready for launch`;
+    }//<<
+
+    if(Number(fuelLevel)< 10000 && Number(cargoLevel)<= 10000 ){
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is too low for launch`;
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} is ready for launch`;
+        launchStatus.innerHTML=`Shuttle is not ready for launch`;
+
     }
-    if(Number(fuelLevel)<= 10000){
-        console.log("fuel too low");
+       
+        
+    else if(Number(fuelLevel)>= 10000 && Number(cargoLevel)<= 10000 ){
+
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is ready for launch`;
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} ready for launch`;
+        launchStatus.innerHTML=`Shuttle is ready for launch`;
+    }
+   
+    //faulty fuel
         /*change faultyItems to visible
          with an updated fuel status stating that there is not enough fuel for the journey. 
-         The text of the h2 element, launchStatus, should also change to "Shuttle not ready for launch" and 
+         The text of the h2 element,, should also change to "Shuttle not ready for launch" and 
          the color should change to red.
          */
-    }//faulty fuel
-    else if(Number(cargoLevel)>= 10000){
-        console.log("cargo too heavy");
+        //><
+    //>>
+    else if (Number(fuelLevel)< 10000 && Number(cargoLevel)> 10000) {
+        
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} too heavy for launch`;
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is too low for launch`;
+        launchStatus.innerHTML=`Shuttle is not ready for launch`;
+    }
         /* 
         change the list to visible 
         with an updated cargo status stating that there is too much mass for the shuttle to take off. 
         The text of launchStatus should also change to "Shuttle not ready for launch" and 
         the color should change to red*/
+else if (Number(fuelLevel)>= 10000 &&Number(cargoLevel)> 10000) {
+        cargoStatus.innerHTML=`Cargo mass ${cargoLevel} too heavy for launch`; 
+        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} is ready for launch`;
+        launchStatus.innerHTML=`Shuttle is not ready for launch`;  
+    
 
-    }// faulty cargo
-    else console.log("readytosubmit");
+    }//
+   
 
-    //let planetsReturned ; //What's the purpose of the variable?
-    async function myFetch() {
-        let planetsReturned ; //What's the purpose of the variable?
-        planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-            let jsonPromise = response.json(); //.json extracts data for use
-            return jsonPromise;
-        });    
-        console.dir(planetsReturned);  
-        return planetsReturned; //results of promise is produced by myFetch
-    } 
-  
-    function pickPlanet(planets) { //pickPlanet(planetsReturned) undefined
-        let planetIdx;
-        let arrayLength;
-        if (arrayLength === undefined) {
-            planetIdx = Math.floor(Math.random()*6);
-            console.log(planetIdx);
-            return planetIdx;
-        }
-        arrayLength = planets.length;
-        planetIdx = Math.floor(Math.random()*arrayLength); //hardcoded planet.length undefined 
-        console.log(planetIdx);
-        return planetIdx;
-    }
     module.exports.addDestinationInfo = addDestinationInfo;
     module.exports.validateInput = validateInput;
     module.exports.formSubmission = formSubmission;
     module.exports.pickPlanet = pickPlanet; 
     module.exports.myFetch = myFetch;
-} // end form submission
-/*
-//write form level listener for submission
-     if (pilot.value === "Empty"|| copilot.value === "Empty" || fuelLevel.value === "Empty" || cargoLevel.value === "Empty") {
-         alert( "User input Required for all fields");        
-    }         
-     else if (pilot.value !== isNaN || copilot.value !== isNaN ) {
-         alert("Is a Number");        
-    }
-     else if (fuelLevel.value === isNaN ||  cargoLevel.value === isNaN) {
-         alert("Not a Number");    //formsubmission    
-    }
-    */
