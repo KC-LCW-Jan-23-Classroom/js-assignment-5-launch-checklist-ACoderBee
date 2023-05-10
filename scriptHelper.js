@@ -31,15 +31,18 @@ async function myFetch() {
 function pickPlanet(planets) { //pickPlanet(planetsReturned) undefined
     let planetIdx;
     let arrayLength;
+    arrayLength = planets.length;
     if (arrayLength === undefined) {
         planetIdx = Math.floor(Math.random()*6);
         console.log(planetIdx);
         return planetIdx;
-    }// end if
-    arrayLength = planets.length;
-    planetIdx = Math.floor(Math.random()*arrayLength); //planets.length undefined 
-    console.log(planetIdx, planets.length);
-    return planetIdx;
+        // end if
+    }
+    else{
+        planetIdx = Math.floor(Math.random()*arrayLength); //planets.length undefined 
+        console.log(planetIdx, planets.length, planets[planetIdx]);
+        return planets[planetIdx];
+    }
 }
 
 function validateInput(testInput) {//validate input & prevent empty submissions

@@ -8,17 +8,17 @@ window.addEventListener("load", function() {
     list.style.visibility = "hidden";
     //set visibility to hidden per dom unit test outside eventListner
     
-    let listedPlanets;//array of 6 objects
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
     //is this the 2nd part of the fetch?
+    let listedPlanets;//array of 6 objects
     let listedPlanetsResponse = myFetch();  // is the Promise fulfilled
     listedPlanetsResponse.then(function (jsonData) {   //jsonData Promise results        
         listedPlanets = jsonData;  
         console.log(listedPlanets);              
         }).then(function () {
-        let index=pickPlanet(listedPlanets);//callfunction pickPlanet(listedPlanets)
-        console.log(index);
-        let planetDest = (listedPlanets[index]);
+        let planetDest=pickPlanet(listedPlanets);//callfunction 
+        // console.log(planetDest);
+        
         addDestinationInfo(document,planetDest.name, planetDest.diameter, planetDest.star, planetDest.distance, planetDest.moons, planetDest.image);
     }); 
 //    
