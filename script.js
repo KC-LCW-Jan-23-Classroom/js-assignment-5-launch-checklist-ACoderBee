@@ -29,7 +29,7 @@ window.addEventListener("load", function() {
         //parameters for formsubmission       
         let list = document.getElementById("faultyItems");
         //set visibility to hidden per dom unit test
-        list.style.visibility="hidden";
+        list.style.visibility = "hidden";
         const pilot = pilotInput.value;
         const copilot = copilotInput.value;
         const fuelLevel = fuelLevelInput.value;
