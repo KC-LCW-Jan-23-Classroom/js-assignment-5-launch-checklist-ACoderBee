@@ -28,6 +28,7 @@ window.addEventListener("load", function() {
         let cargoLevelInput=document.querySelector("input[name=cargoMass]");
         //parameters for formsubmission       
         let list = document.getElementById("faultyItems");
+        //set visibility to hidden per dom unit test
         list.style.visibility="hidden";
         const pilot = pilotInput.value;
         const copilot = copilotInput.value;
