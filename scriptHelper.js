@@ -80,14 +80,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML=`Co-pilot ${copilot} is ready for launch`;
     if(Number(fuelLevel)< 10000 && Number(cargoLevel)<= 10000 ){
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} too low for launch`;
+        fuelStatus.innerHTML= 'Fuel level too low for launch';
         cargoStatus.innerHTML='Cargo mass low enough for launch';
         launchStatus.innerHTML=`Shuttle not ready for launch`;
         launchStatus.style.color='red';        
     }   
     else if(Number(fuelLevel)>= 10000 && Number(cargoLevel)<= 10000 ){
         
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} high enough for launch`;
+        fuelStatus.innerHTML= 'Fuel level high enough for launch';
         cargoStatus.innerHTML='Cargo mass low enough for launch';
         launchStatus.innerHTML=`Shuttle is ready for launch`;
         launchStatus.style.color ="green";
@@ -97,14 +97,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     //>>
     else if (Number(fuelLevel)< 10000 && Number(cargoLevel)> 10000) {        
         cargoStatus.innerHTML='Cargo mass too heavy for launch';
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} too low for launch`;
+        fuelStatus.innerHTML= 'Fuel level too low for launch';
         launchStatus.innerHTML=`Shuttle not ready for launch`;
         launchStatus.style.color='red';
     }
     
     else if (Number(fuelLevel)>= 10000 && Number(cargoLevel)> 10000) {
         cargoStatus.innerHTML='Cargo mass too heavy for launch'; 
-        fuelStatus.innerHTML= `Fuel Level ${fuelLevel} high enough for launch`;
+        fuelStatus.innerHTML= 'Fuel level high enough for launch';
         launchStatus.innerHTML=`Shuttle not ready for launch`; 
         launchStatus.style.color='red'; 
     }//
@@ -117,3 +117,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     module.exports.formSubmission = formSubmission;
     module.exports.pickPlanet = pickPlanet; 
     module.exports.myFetch = myFetch;
+
+    /* Changes to pass autograder
+    
+`Cargo mass ${cargoLevel} is low enough for launch`
+`Cargo mass ${cargoLevel} is too heavy for launch`
+`Fuel Level ${fuelLevel} high enough for launch`
+`Fuel Level ${fuelLevel} too low for launch`
+
+    */
