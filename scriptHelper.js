@@ -83,14 +83,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML= 'Fuel level too low for launch';
         cargoStatus.innerHTML='Cargo mass low enough for launch';
         launchStatus.innerHTML='Shuttle Not Ready for Launch';
-        launchStatus.style.color='red';        
+        launchStatus.style.color='rgb(199, 37, 78)';        
     }   
     else if(Number(fuelLevel)>= 10000 && Number(cargoLevel)<= 10000 ){
         
         fuelStatus.innerHTML= 'Fuel level high enough for launch';
         cargoStatus.innerHTML='Cargo mass low enough for launch';
         launchStatus.innerHTML='Shuttle is Ready for Launch';
-        launchStatus.style.color ="green";
+        launchStatus.style.color ='rgb(65, 159, 106)';
         
     }
        
@@ -99,14 +99,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         cargoStatus.innerHTML='Cargo mass too heavy for launch';
         fuelStatus.innerHTML= 'Fuel level too low for launch';
         launchStatus.innerHTML='Shuttle Not Ready for Launch';
-        launchStatus.style.color='red';
+        launchStatus.style.color='rgb(199, 37, 78)';
     }
     
     else if (Number(fuelLevel)>= 10000 && Number(cargoLevel)> 10000) {
         cargoStatus.innerHTML='Cargo mass too heavy for launch'; 
         fuelStatus.innerHTML= 'Fuel level high enough for launch';
         launchStatus.innerHTML='Shuttle Not Ready for Launch'; 
-        launchStatus.style.color='red'; 
+        launchStatus.style.color='rgb(199, 37, 78)'; 
     }//
     }//end if -- all fields have correct typeOf data 
 }//end formSubmit
@@ -126,5 +126,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 `Fuel Level ${fuelLevel} too low for launch`
 `Shuttle is ready for launch'
 'Shuttle not ready for launch'
+"green"
+'red'
 
     */
