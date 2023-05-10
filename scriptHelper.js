@@ -76,7 +76,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuelStatus=document.getElementById("fuelStatus");
     let cargoStatus=document.getElementById("cargoStatus");
     
-    list.style.visibility ="visible";// dont understand inline style list
+    list.style.visibility ="visible";// dont understand inline style list must set to hidden at front
     pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML=`Co-pilot ${copilot} is ready for launch`;
     if(Number(fuelLevel)< 10000 && Number(cargoLevel)<= 10000 ){
@@ -118,7 +118,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     module.exports.pickPlanet = pickPlanet; 
     module.exports.myFetch = myFetch;
 
-    /* Changes to pass autograder
+    /* Cosmetic changes to pass autograder
     
 `Cargo mass ${cargoLevel} is low enough for launch`
 `Cargo mass ${cargoLevel} is too heavy for launch`
