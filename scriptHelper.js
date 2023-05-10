@@ -82,14 +82,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if(Number(fuelLevel)< 10000 && Number(cargoLevel)<= 10000 ){
         fuelStatus.innerHTML= 'Fuel level too low for launch';
         cargoStatus.innerHTML='Cargo mass low enough for launch';
-        launchStatus.innerHTML=`Shuttle not ready for launch`;
+        launchStatus.innerHTML='Shuttle Not Ready for Launch';
         launchStatus.style.color='red';        
     }   
     else if(Number(fuelLevel)>= 10000 && Number(cargoLevel)<= 10000 ){
         
         fuelStatus.innerHTML= 'Fuel level high enough for launch';
         cargoStatus.innerHTML='Cargo mass low enough for launch';
-        launchStatus.innerHTML=`Shuttle is ready for launch`;
+        launchStatus.innerHTML='Shuttle is Ready for Launch';
         launchStatus.style.color ="green";
         
     }
@@ -98,14 +98,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     else if (Number(fuelLevel)< 10000 && Number(cargoLevel)> 10000) {        
         cargoStatus.innerHTML='Cargo mass too heavy for launch';
         fuelStatus.innerHTML= 'Fuel level too low for launch';
-        launchStatus.innerHTML=`Shuttle not ready for launch`;
+        launchStatus.innerHTML='Shuttle Not Ready for Launch';
         launchStatus.style.color='red';
     }
     
     else if (Number(fuelLevel)>= 10000 && Number(cargoLevel)> 10000) {
         cargoStatus.innerHTML='Cargo mass too heavy for launch'; 
         fuelStatus.innerHTML= 'Fuel level high enough for launch';
-        launchStatus.innerHTML=`Shuttle not ready for launch`; 
+        launchStatus.innerHTML='Shuttle Not Ready for Launch'; 
         launchStatus.style.color='red'; 
     }//
     }//end if -- all fields have correct typeOf data 
@@ -124,5 +124,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 `Cargo mass ${cargoLevel} is too heavy for launch`
 `Fuel Level ${fuelLevel} high enough for launch`
 `Fuel Level ${fuelLevel} too low for launch`
+`Shuttle is ready for launch'
+'Shuttle not ready for launch'
 
     */
