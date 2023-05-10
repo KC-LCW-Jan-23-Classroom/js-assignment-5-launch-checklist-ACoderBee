@@ -4,7 +4,10 @@
 window.addEventListener("load", function() {
     //const formField = document.getElementsByClassName("formField");
     let form = document.querySelector("form");
-        
+    let list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden";
+    //set visibility to hidden per dom unit test outside eventListner
+    
     let listedPlanets;//array of 6 objects
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
     //is this the 2nd part of the fetch?
@@ -27,9 +30,6 @@ window.addEventListener("load", function() {
         let fuelLevelInput=document.querySelector("input[name=fuelLevel]");
         let cargoLevelInput=document.querySelector("input[name=cargoMass]");
         //parameters for formsubmission       
-        let list = document.getElementById("faultyItems");
-        //set visibility to hidden per dom unit test
-        list.style.visibility = "hidden";
         const pilot = pilotInput.value;
         const copilot = copilotInput.value;
         const fuelLevel = fuelLevelInput.value;
